@@ -10,28 +10,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_user")
-public class User implements Serializable {
-
+@Table(name = "tb_worker")
+public class Worker implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String email;
-	private String password;
+	private Double dailyIncome;
 
-	public User() {
+	public Worker() {
 
 	}
 
-	public User(Long id, String name, String email, String password) {
+	public Worker(Long id, String name, Double dailyIncome) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.email = email;
-		this.password = password;
+		this.dailyIncome = dailyIncome;
 	}
 
 	public Long getId() {
@@ -50,20 +48,12 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+	public Double getDailyIncome() {
+		return dailyIncome;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setDailyIncome(Double dailyIncome) {
+		this.dailyIncome = dailyIncome;
 	}
 
 	@Override
@@ -79,7 +69,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Worker other = (Worker) obj;
 		return Objects.equals(id, other.id);
 	}
 
