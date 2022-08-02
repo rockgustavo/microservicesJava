@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.rockgustavo.model.User;
-
 @RestController
 @RequestMapping("/")
 public class HomeController {
@@ -26,8 +24,8 @@ public class HomeController {
 	}
 
 	@PostMapping("/logar")
-	public ModelAndView create(User user) {
-		System.out.println("LOGIN: " + user.getName() + " - SENHA: " + user.getPassword());
+	public ModelAndView create(String name, String password) {
+		System.out.println("LOGIN: " + name + " - SENHA: " + password);
 
 		mv.setViewName("home/index");
 		return mv;
